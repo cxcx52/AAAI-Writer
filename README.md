@@ -1,5 +1,7 @@
 # AAAI Revision Detemplater
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A Codex skill for rebuilding AAAI revision packages into cleaner, more defensible submissions.
 
 This skill is aimed at a specific failure mode that shows up in real paper revisions:
@@ -47,25 +49,47 @@ Use it when you already have:
 
 ## Install
 
-Clone or copy this repository into your local Codex skills directory so the folder name matches the skill name:
+Codex reads personal skills from `$CODEX_HOME/skills` when `CODEX_HOME` is configured, otherwise from `~/.codex/skills`. Clone this repository into that directory. The GitHub repository is named `AAAI-Writer`, but the destination folder must be `aaai-revision-detemplater` so it matches the skill name.
+
+The commands below use the default `~/.codex/skills` location.
+
+PowerShell:
 
 ```powershell
-git clone https://github.com/cxcx52/AAAI-Writer.git "$HOME\\.codex\\skills\\aaai-revision-detemplater"
+New-Item -ItemType Directory -Force "$HOME\.codex\skills" | Out-Null
+git clone https://github.com/cxcx52/AAAI-Writer.git "$HOME\.codex\skills\aaai-revision-detemplater"
 ```
 
-If you already cloned it elsewhere, make sure the usable skill folder is named:
+macOS or Linux:
 
-```text
-aaai-revision-detemplater
+```bash
+mkdir -p "$HOME/.codex/skills"
+git clone https://github.com/cxcx52/AAAI-Writer.git "$HOME/.codex/skills/aaai-revision-detemplater"
 ```
+
+Open a new Codex task after installation so the skill catalog is refreshed.
 
 ## Invoke
 
 Example prompt:
 
 ```text
-Use $aaai-revision-detemplater to rebuild this AAAI paper and supplement into a reviewer-facing revision package without rerunning experiments.
+Use $aaai-revision-detemplater to rebuild this AAAI paper and supplement while reusing valid experiment artifacts.
 ```
+
+For a useful first pass, provide the main `.tex` entry point, supplementary source, current PDF or build folder, reviewer comments if available, and any existing upload ZIPs. State the page budget and whether experiment artifacts are frozen.
+
+See [中文使用说明](docs/usage_zh.md) and the [copyable example request](examples/example_input.md).
+
+## Expected output
+
+A package-level run returns:
+
+- a revision diagnosis and one-sentence narrative spine;
+- specific main-paper and supplement moves;
+- title, abstract, keyword, TL;DR, and OpenReview edits when present;
+- an artifact-reuse plan that identifies what can remain frozen;
+- residual claim, page-budget, and upload-package risks.
 
 ## Repository contents
 
@@ -73,11 +97,15 @@ Use $aaai-revision-detemplater to rebuild this AAAI paper and supplement into a 
 - `agents/openai.yaml`: UI metadata and default invocation prompt
 - `references/narrative-rebuild.md`: how to reconstruct the story
 - `references/main-vs-supplement.md`: main-paper versus supplement allocation
+- `references/artifact-governance.md`: fact sheets, claim boundaries, and package records
+- `references/upload-audit.md`: source ZIP, PDF preview, checksum, and portal checks
 - `references/metadata-surfaces.md`: abstract, TL;DR, title, and keywords
 - `references/evidence-calibration.md`: how to avoid overclaiming
+- `docs/usage_zh.md`: concise Chinese usage guide
+- `examples/example_input.md`: realistic request template
+- `CHANGELOG.md`: public release history
+- `LICENSE`: MIT license
 
-## Current limitation
+## Scope
 
-The repository name is currently `AAAI-Writer`, while the actual skill name is `aaai-revision-detemplater`.
-
-For discoverability and installation ergonomics, renaming the repository to `aaai-revision-detemplater` would be cleaner.
+This skill revises arguments, prose, source layout, metadata, and submission packaging. It does not invent evidence, guarantee acceptance, or rerun frozen experiments unless a requested change invalidates the existing artifacts.
