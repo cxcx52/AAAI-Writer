@@ -1,0 +1,4 @@
+interface:
+  display_name: "AAAI Revision Detemplater"
+  short_description: "Restructure AAAI revision packages."
+  default_prompt: "Use $aaai-revision-detemplater to rebuild this AAAI paper and supplement into a reviewer-facing revision package without rerunning experiments."
