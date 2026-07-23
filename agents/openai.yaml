@@ -1,4 +1,4 @@
 interface:
-  display_name: "AAAI Revision Detemplater"
-  short_description: "De-template and audit AAAI revision packages."
-  default_prompt: "Use $aaai-revision-detemplater to rebuild this AAAI paper and supplement while reusing valid experiment artifacts."
+  display_name: "AAAI Paper Architect"
+  short_description: "Plan, rewrite, and restructure AAAI papers and revisions."
+  default_prompt: "Use $aaai-paper-architect to rebuild my AAAI paper or revision package into a clearer claim-first manuscript."

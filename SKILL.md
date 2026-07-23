@@ -1,53 +1,91 @@
 ---
-name: aaai-revision-detemplater
-description: Restructure AAAI revision packages around a clearer argument while reducing template feel, redistributing essential content from supplement to main paper, tightening abstract/TL;DR/OpenReview metadata, and reusing existing experiment artifacts without unnecessary reruns. Use when Codex needs to revise AAAI `.tex` projects, submission folders, appendices, or upload packages after reviews or internal critique.
+name: aaai-paper-architect
+description: Build, rewrite, tighten, and audit AAAI papers with claim-first architecture, evidence-calibrated contribution framing, section-level rhetorical moves, anti-defensive style control, academic anti-AI-smell editing, and revision-package restructuring. Use when the user wants to write an AAAI paper, create an AAAI outline, draft or rewrite abstract/introduction/method/experiments/related work/conclusion, reduce AI-smell, remove defensive not-but/rather-than prose, calibrate claim strength, map experiments to claims, rebalance main paper versus supplement, tighten abstract/TL;DR/OpenReview metadata, or turn Codex workflow materials, PDFs, LaTeX, figures, tables, literature notes, and frozen submission folders into an AAAI-ready manuscript or revision package.
 ---
 
-# AAAI Revision Detemplater
+# AAAI Paper Architect
 
-Use this skill when a draft already has technical content and experiments, but the package still reads as over-symmetrized, over-templated, or too dependent on the supplement.
+Use this skill for AAAI writing and rewriting. It is a synthesis layer over local AAAI/Nature writing skills, external paper-writing/reviewer workflows, and the user's observed draft failure mode: evidence-safe prose that becomes too defensive.
 
-## Core stance
+## Core Stance
 
-- Rebuild the story from the paper's real decision point, not from the existing section order.
-- Move any result needed for reviewer judgment into the main paper whenever page budget permits.
-- Treat the supplement as audit trail, derivation support, and reproducibility record, not as a shadow main paper.
-- Prefer reuse of frozen artifacts, existing figures, and current zip packages unless the user explicitly asks to rerun experiments.
-- Replace broad conclusion language with scope-true statements tied to the exact control, stress test, or family evaluated.
+- Write from the paper's positive contribution first, then place limits only where they prevent overclaiming.
+- Treat claims as contracts: every abstract, introduction, heading, and contribution claim needs an evidence pointer.
+- Prefer concrete mechanisms, numbers, and named evaluation questions over generic adjectives.
+- Avoid rhetorical antithesis as a default style. `not X but Y`, `rather than`, and `instead` are allowed only when the contrast is a factual contribution boundary.
+- Build the paper twice: use Draft 0 to find the story, then rewrite the final introduction and abstract after the evidence map is stable.
+- For revision packages, rebuild the story from the real decision point, not from the inherited section order or prior contribution symmetry.
+- Keep reviewer-critical material in the main paper whenever the page budget permits; treat the supplement as audit trail and reproducibility support, not as a shadow main paper.
+- Reuse frozen artifacts, existing figures, and current upload packages unless a textual or structural change actually invalidates them.
 
 ## Workflow
 
-1. Classify the revision target.
-   Distinguish whether the main problem is narrative duplication, page-budget misallocation, metadata overload, over-strong interpretation, or package hygiene.
-2. Rebuild the narrative spine.
-   Write one identity sentence, one central question, and one evidence sequence before touching headings.
-3. Audit main-paper necessity.
+1. Classify the paper type.
+   Use algorithm/theory, method/model, benchmark/resource, application-driven, or systems/agent evaluation.
+2. Build the paper contract.
+   Produce one identity sentence, 3-4 contribution claims, a claim-evidence table, and a 7-page AAAI budget.
+3. Design the narrative spine.
+   Use the sequence: stakes -> structural gap -> key abstraction -> design intuition -> evidence preview -> contributions.
+4. Draft by topic sentences first.
+   Write the topic sentence sequence for a section before full paragraphs. If the topic sentences do not form an argument, do not expand them.
+5. Audit revision-package necessity when revising an existing paper.
    For each definition, mechanism, result, and diagnostic, decide whether a reviewer needs it to accept or reject the paper without opening the supplement.
-4. Redistribute content.
+6. Redistribute content when the package is top-heavy or over-supplemented.
    Pull indispensable material into the main paper. Push only derivations, exhaustive sensitivity tables, provenance detail, and replay material into the supplement.
-5. De-template the rhetoric.
-   Reduce one-to-one mirrored contributions, repetitive binary framing, and conclusion-shaped section titles. Allow asymmetric contribution granularity when the evidence is asymmetric.
-6. Separate facts from claims.
-   Maintain a result fact sheet, a claim-boundary list, and a reviewer-risk matrix so the prose can be rewritten without drifting beyond the artifact facts.
-7. Tighten metadata surfaces.
-   Rewrite title, abstract, keywords, TL;DR, and OpenReview registration text so they expose the contribution with lower numeric clutter and less editorialized interpretation.
-8. Preserve package efficiency.
-   Reuse existing sources, figures, and upload archives when valid. Avoid recomputation unless a change truly invalidates prior artifacts.
-9. Run the package audit.
-   Before finalizing, check that local audit notes, runtime wording, hash manifests, upload-folder contents, read-only PDFs, and portal-preview expectations all reflect the current text rather than an older packaging pass.
+7. Calibrate claim strength.
+   Match verbs to evidence: `suggests`, `shows`, `demonstrates`, `establishes`, or `proves`.
+8. Tighten metadata surfaces when submission text exists.
+   Rewrite title, abstract, keywords, TL;DR, and OpenReview text to reduce numeric clutter, mirrored contribution phrasing, and over-strong interpretation.
+9. Run the defensive-style gate.
+   Use the script when files are available. Rewrite excess negation into positive contribution statements.
+10. Run the academic anti-AI-style gate.
+   Remove template openers, connector stacking, generic praise, synonym cycling, and uniform rhythm without casualizing the paper or weakening evidence-bound claims.
+11. Run a reviewer-risk pass.
+   For scoring or simulated reviews, route to `aaai-review-simulator`; for writing revisions, stay in this skill.
+12. Preserve artifact efficiency.
+   Reuse existing sources, figures, and upload archives when valid. Avoid recomputation unless a content change requires it.
 
-## Reference routing
+## Reference Routing
 
-- Read [references/narrative-rebuild.md](references/narrative-rebuild.md) when the paper's story is trapped inside its current wording or section structure.
-- Read [references/main-vs-supplement.md](references/main-vs-supplement.md) when deciding what must remain in the main paper under AAAI page limits.
-- Read [references/artifact-governance.md](references/artifact-governance.md) when you need to keep narrative claims, artifact facts, reviewer risks, and final package records aligned.
-- Read [references/upload-audit.md](references/upload-audit.md) when source ZIPs, PDF previews, checksum tables, or submission-portal rendering need to be checked before upload.
-- Read [references/metadata-surfaces.md](references/metadata-surfaces.md) when editing the abstract, TL;DR, title, keywords, or OpenReview fields.
-- Read [references/evidence-calibration.md](references/evidence-calibration.md) when a sentence sounds stronger than the actual control or robustness evidence.
+- Read [references/paper-architecture.md](references/paper-architecture.md) for whole-paper planning, page budget, and narrative spine.
+- Read [references/claim-calibration.md](references/claim-calibration.md) for claim strength, contribution bullets, and evidence mapping.
+- Read [references/defensive-style-gate.md](references/defensive-style-gate.md) when revising AI-smell, `not-but`, `rather than`, hedging, or defensive scope prose.
+- Read [references/anti-ai-academic-style.md](references/anti-ai-academic-style.md) when the user asks to reduce AI-smell, humanize academic prose, de-template writing, or preserve author voice.
+- Read [references/section-playbook.md](references/section-playbook.md) when drafting or rewriting a specific section.
+- Read [references/source-basis.md](references/source-basis.md) when you need provenance for the synthesis or want to inspect what this skill learned from.
 
-## Output contracts
+## Script
 
-For a package-level rewrite, return:
+When the user provides `.tex`, `.txt`, or `.md` files or a paper directory, run:
+
+```bash
+python scripts/audit_aaai_style.py <path>
+```
+
+Use the output as a rewrite queue. Fix high-density defensive constructions first, then generic adjectives, then throat-clearing and AI-smell.
+
+## Output Contracts
+
+For a new paper plan, return:
+
+- `Identity sentence`
+- `Paper type`
+- `Narrative spine`
+- `Contribution claims`
+- `Claim-evidence map`
+- `Section/page plan`
+- `Figure/table plan`
+- `Immediate missing evidence`
+
+For a rewrite, return:
+
+- `Diagnosis`
+- `Rewritten text`
+- `Claim/evidence changes`
+- `Defensive-style fixes`
+- `Residual risks`
+
+For a revision package, return:
 
 - `Revision diagnosis`
 - `Narrative spine`
@@ -57,17 +95,20 @@ For a package-level rewrite, return:
 - `Artifact reuse plan`
 - `Residual risks`
 
-For a section or metadata rewrite, return:
+For a section draft, return:
 
-- `Problem`
-- `Rewritten text`
-- `Why this wording is safer`
-- `What evidence still limits the claim`
+- `Topic-sentence sequence`
+- `Draft`
+- `Section self-check`
+- `Claims that still need evidence`
 
 ## Boundaries
 
-- Do not invent new experiments, statistics, citations, figures, or theoretical claims.
-- Do not move critical definitions or headline evidence out of the main paper merely to make the supplement look fuller.
-- Do not preserve symmetry for its own sake when asymmetry matches the evidence better.
+- Do not invent experiments, citations, numbers, baselines, or award-paper patterns.
+- Do not make the prose more aggressive than the evidence supports.
+- Do not hide real limitations; move them to a controlled limitation sentence or limitations section.
+- Do not use simulated review score as a writing objective. Use review output only to identify revision targets.
+- Do not optimize prose for evading AI detectors. Treat AI-smell reduction as scholarly editing: clarity, specificity, rhythm, and evidence discipline.
+- Do not preserve mirrored contribution structure or binary framing when the evidence is asymmetric.
 - Do not describe a control as ruling out an explanation beyond the scope actually tested.
 - Do not rerun frozen pipelines or regenerate upload packages unless a text or artifact change requires it.

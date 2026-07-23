@@ -1,106 +1,96 @@
-# AAAI Revision Detemplater
+# AAAI Paper Architect
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A Codex skill for rebuilding AAAI revision packages into cleaner, more defensible submissions.
+A Codex skill for planning, rewriting, tightening, and restructuring AAAI papers and revision packages.
 
-This skill is aimed at a specific failure mode that shows up in real paper revisions:
+`aaai-paper-architect` is built for the layer between technical content and acceptance-facing presentation:
 
-- the story becomes over-templated;
-- contributions are forced into artificial symmetry;
-- critical content gets pushed into the supplement;
-- abstracts and TL;DR fields become numerically dense;
-- conclusions sound stronger than the actual control or robustness evidence;
-- authors rerun packages unnecessarily instead of reusing valid frozen artifacts.
+- claim-first paper architecture;
+- evidence-calibrated contribution framing;
+- section-level rhetorical control;
+- de-defensifying academic prose;
+- reducing templated AAAI writing patterns;
+- rebalancing main paper versus supplement during revision;
+- tightening title, abstract, TL;DR, and OpenReview-facing metadata;
+- reusing valid frozen artifacts instead of rerunning work by default.
 
-`aaai-revision-detemplater` fixes that layer.
-
-## What it does
+## What It Does
 
 The skill helps Codex:
 
-- rebuild the paper's narrative spine from the real review question;
-- reduce template feel in titles, contributions, section names, and experiment framing;
-- decide what must stay in the main paper versus what belongs in supplementary material;
-- tighten title, abstract, keywords, TL;DR, and OpenReview registration text;
-- soften over-strong claims so they match the actual evidence scope;
-- prefer package reuse over unnecessary recomputation.
+- turn a paper idea into an identity sentence, contribution set, and page-budgeted outline;
+- rewrite abstracts, introductions, methods, experiments, related work, and conclusions;
+- map claims to evidence before polishing prose;
+- reduce mirrored contribution structures, repeated binary framing, and generic AI-style transitions;
+- keep reviewer-critical results in the main paper when page budget permits;
+- calibrate scope so controls and robustness checks are not overstated;
+- audit local `.tex`, `.txt`, and `.md` paper directories with the bundled style script.
 
-## Why this is different
+## Best Use Cases
 
-Most paper-writing prompts optimize for fluent prose.
+Use it when you have one of these situations:
 
-This skill optimizes for revision quality under AAAI constraints:
-
-- reviewer-facing clarity;
-- evidence-calibrated claims;
-- main-paper-first content allocation;
-- lower "AI smell" from mirrored structure and repetitive rhetorical framing.
-
-## Best use cases
-
-Use it when you already have:
-
-- a working AAAI `.tex` submission;
-- figures, tables, and experiment artifacts;
-- a supplementary document or upload package;
-- reviewer comments or internal critique;
-- a draft that feels technically solid but rhetorically too uniform.
+- an AAAI paper idea that needs a defensible narrative spine;
+- a draft whose writing is too defensive, too templated, or too uniform;
+- a revision package whose supplement is carrying too much of the acceptance decision;
+- abstract, TL;DR, keyword, or OpenReview text that has become dense or over-claimed;
+- a local submission folder with frozen artifacts that should be reused unless truly invalidated.
 
 ## Install
 
-Codex reads personal skills from `$CODEX_HOME/skills` when `CODEX_HOME` is configured, otherwise from `~/.codex/skills`. Clone this repository into that directory. The GitHub repository is named `AAAI-Writer`, but the destination folder must be `aaai-revision-detemplater` so it matches the skill name.
-
-The commands below use the default `~/.codex/skills` location.
+Codex reads personal skills from `$CODEX_HOME/skills` when `CODEX_HOME` is configured, otherwise from `~/.codex/skills`. Clone this repository into that directory. The GitHub repository is named `AAAI-Writer`, but the destination folder should be `aaai-paper-architect` so it matches the skill name.
 
 PowerShell:
 
 ```powershell
 New-Item -ItemType Directory -Force "$HOME\.codex\skills" | Out-Null
-git clone https://github.com/cxcx52/AAAI-Writer.git "$HOME\.codex\skills\aaai-revision-detemplater"
+git clone https://github.com/cxcx52/AAAI-Writer.git "$HOME\.codex\skills\aaai-paper-architect"
 ```
 
 macOS or Linux:
 
 ```bash
 mkdir -p "$HOME/.codex/skills"
-git clone https://github.com/cxcx52/AAAI-Writer.git "$HOME/.codex/skills/aaai-revision-detemplater"
+git clone https://github.com/cxcx52/AAAI-Writer.git "$HOME/.codex/skills/aaai-paper-architect"
 ```
 
-Open a new Codex task after installation so the skill catalog is refreshed.
+Open a new Codex task after installation so the skill catalog refreshes.
 
 ## Invoke
 
 Example prompt:
 
 ```text
-Use $aaai-revision-detemplater to rebuild this AAAI paper and supplement while reusing valid experiment artifacts.
+Use $aaai-paper-architect to rebuild my AAAI paper or revision package into a clearer claim-first manuscript.
 ```
 
-For a useful first pass, provide the main `.tex` entry point, supplementary source, current PDF or build folder, reviewer comments if available, and any existing upload ZIPs. State the page budget and whether experiment artifacts are frozen.
+For a useful first pass, provide the main `.tex` entry point, current build folder or PDF, supplementary source if present, reviewer comments if present, and the current page-budget constraint.
 
 See [中文使用说明](docs/usage_zh.md) and the [copyable example request](examples/example_input.md).
 
-## Expected output
+## Expected Output
 
-A package-level run returns:
+Depending on the task, the skill returns:
 
-- a revision diagnosis and one-sentence narrative spine;
-- specific main-paper and supplement moves;
-- title, abstract, keyword, TL;DR, and OpenReview edits when present;
-- an artifact-reuse plan that identifies what can remain frozen;
-- residual claim, page-budget, and upload-package risks.
+- an identity sentence and narrative spine;
+- contribution claims plus claim-evidence mapping;
+- section-level rewrite plans or rewritten text;
+- main-paper versus supplement moves for revision packages;
+- title, abstract, keyword, TL;DR, or OpenReview edits when needed;
+- residual evidence, scope, and reviewer-risk notes.
 
-## Repository contents
+## Repository Contents
 
-- `SKILL.md`: core workflow and operating boundaries
+- `SKILL.md`: core workflow and boundaries
 - `agents/openai.yaml`: UI metadata and default invocation prompt
-- `references/narrative-rebuild.md`: how to reconstruct the story
-- `references/main-vs-supplement.md`: main-paper versus supplement allocation
-- `references/artifact-governance.md`: fact sheets, claim boundaries, and package records
-- `references/upload-audit.md`: source ZIP, PDF preview, checksum, and portal checks
-- `references/metadata-surfaces.md`: abstract, TL;DR, title, and keywords
-- `references/evidence-calibration.md`: how to avoid overclaiming
+- `references/paper-architecture.md`: whole-paper planning and page budget
+- `references/claim-calibration.md`: contribution and claim-strength control
+- `references/defensive-style-gate.md`: defensive-style rewrite guidance
+- `references/anti-ai-academic-style.md`: anti-template and anti-AI-smell guidance
+- `references/section-playbook.md`: section-specific drafting patterns
+- `references/source-basis.md`: provenance for the skill synthesis
+- `scripts/audit_aaai_style.py`: local rewrite-queue audit script
 - `docs/usage_zh.md`: concise Chinese usage guide
 - `examples/example_input.md`: realistic request template
 - `CHANGELOG.md`: public release history
@@ -108,4 +98,4 @@ A package-level run returns:
 
 ## Scope
 
-This skill revises arguments, prose, source layout, metadata, and submission packaging. It does not invent evidence, guarantee acceptance, or rerun frozen experiments unless a requested change invalidates the existing artifacts.
+This skill rewrites arguments, prose, section structure, and revision packaging. It does not invent evidence, citations, or results, and it does not rerun frozen experiments unless a requested change makes the existing artifact set invalid.

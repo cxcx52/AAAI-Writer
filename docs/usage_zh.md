@@ -1,43 +1,52 @@
-# 中文快速开始
+# 中文快速使用
 
-`aaai-revision-detemplater` 用于已有技术内容和实验结果的 AAAI 论文修订。它重点处理叙事模板感、主文与补充材料分配、结论强度、OpenReview 字段以及投稿包复用。
+`aaai-paper-architect` 用于 AAAI 论文的规划、重写、收紧和 revision package 重构。
 
-## 准备材料
+它适合处理这几类问题：
 
-尽量提供以下内容；缺少部分材料时，skill 仍可先做文本级审阅。
+- 叙事主线不清，贡献像并排罗列；
+- 文字太防御、太模板化、太像自动生成；
+- 主文信息不足，补充材料承担了太多审稿判断；
+- 摘要、TL;DR、OpenReview 字段数字过密或结论过强；
+- 现有实验结果已经冻结，希望优先复用而不是重跑。
+
+## 建议输入
+
+尽量提供以下材料中的相关部分：
 
 - 主文入口文件，例如 `main.tex`
-- 补充材料入口文件，例如 `supplementary.tex`
-- 当前 PDF 或可编译的 build/source 文件夹
-- `abstract.txt`、`keywords.txt`、TL;DR 或 OpenReview 文本
-- 审稿意见、内部批注或明确的修订目标
-- 已有源码包、代码数据包、图表和冻结实验结果
-- 页数约束，以及是否允许重跑实验
+- 当前 build 目录或 PDF
+- 补充材料入口文件，如果有
+- 审稿意见、内部批注或 revision 目标
+- 标题、摘要、关键词、TL;DR、OpenReview 文本，如果要一起改
+- 页数约束，以及哪些实验结果已经冻结
 
-不要上传作者身份、API token、私有数据或不应进入匿名投稿包的本机审计记录。
-
-## 推荐调用方式
+## 推荐调用
 
 ```text
-使用 $aaai-revision-detemplater 审阅这个 AAAI 投稿目录。
-先重建叙事主线，再检查主文是否自足、补充材料是否重复、
-摘要和 OpenReview 字段是否过密或过度下结论。
-现有实验结果已冻结，除非文本改动使结果失效，否则不要重跑实验。
-最后给出可复用文件、需更新文件、编译结果和上传前风险清单。
+使用 $aaai-paper-architect 审阅这个 AAAI 论文目录。
+先重建 identity sentence、贡献主线和 claim-evidence map，
+再判断主文和补充材料的分配是否合理，
+并修改摘要、TL;DR 和 OpenReview 文本。
+如果现有实验结果和图表仍然有效，优先复用，不要重跑。
 ```
 
-如果只需要局部修改，请直接限定范围，例如：
+如果只想改局部，也可以直接限定范围，例如：
 
 ```text
-使用 $aaai-revision-detemplater 只修改摘要和 OpenReview TL;DR。
-摘要最多保留四组关键数字，TL;DR 不超过 250 个字符，
-所有因果或排除式结论都要限定到实际 control 的范围。
+使用 $aaai-paper-architect 只重写摘要和 introduction。
+要求减少模板化表达，弱化超范围结论，并保持所有 claim 都能回指到现有证据。
 ```
 
-## 使用边界
+## 输出预期
 
-skill 会优先核对并复用现有产物，但不会把“已冻结”当作永远有效。若修订改变数据筛选、指标定义、随机种子、模型集合、统计口径或图表所依赖的结果，应重新验证相应产物。
+常见输出包括：
 
-最终仍应人工确认匿名性、AAAI 当年页数与格式要求、参考文献、PDF 字体、OpenReview 字符限制和门户预览。
+- 一句话论文定位和叙事主线
+- 贡献点与证据映射
+- 分节重写建议或直接改写文本
+- 主文/补充材料迁移建议
+- metadata 文本修改
+- 剩余风险与证据边界
 
-完整工作流和输出约定以 [SKILL.md](../SKILL.md) 为准；主文与补充材料的判定细则见 [main-vs-supplement.md](../references/main-vs-supplement.md)，投稿包检查见 [upload-audit.md](../references/upload-audit.md)。
+完整工作流以 [SKILL.md](../SKILL.md) 为准。

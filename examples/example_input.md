@@ -1,31 +1,30 @@
-# Example input
+# Example Input
 
-The following request is intentionally concrete enough for a package-level revision:
+The request below is concrete enough for a package-level AAAI rewrite:
 
 ```text
-Use $aaai-revision-detemplater on the AAAI submission at <paper-folder>.
+Use $aaai-paper-architect on the AAAI project at <paper-folder>.
 
 Inputs:
 - main source: <paper-folder>/main.tex
-- supplement: <paper-folder>/supplementary.tex
 - current build: <paper-folder>/build
-- upload package: <paper-folder>/submission
+- supplement: <paper-folder>/supplementary.tex
 - reviewer notes: <paper-folder>/revision_notes.md
 
-Constraints:
-- keep the technical-content portion within the current AAAI page budget;
-- make the main paper self-contained for the acceptance decision;
-- reduce mirrored contribution and section structures;
-- calibrate claims to the exact controls and stress tests;
-- keep the OpenReview TL;DR within 250 characters;
-- reuse frozen results, figures, and code/data archives unless a source change invalidates them.
+Goals:
+- rebuild the identity sentence and contribution logic;
+- make the main paper self-contained for the acceptance decision when page budget permits;
+- reduce defensive and templated phrasing;
+- calibrate claims to the exact controls and evidence already in the project;
+- tighten abstract, keywords, and TL;DR if they are overloaded;
+- reuse frozen figures, tables, and experiment artifacts unless a source change invalidates them.
 
 Deliver:
-1. revised source files and, when a local toolchain is available, verified compiled PDFs;
-2. a main-versus-supplement move log;
-3. synchronized abstract, keywords, and OpenReview text;
-4. a package reuse/replace manifest;
-5. a final upload audit with unresolved risks.
+1. revised source text or patch-ready rewrite recommendations;
+2. a claim-evidence map;
+3. main-paper versus supplement moves if needed;
+4. synchronized metadata text;
+5. residual risks that still need author judgment.
 ```
 
-For a narrower task, remove unrelated inputs and ask for one output surface only. For example: “Revise only the abstract and TL;DR; do not change the paper source.”
+For a narrower task, remove unrelated inputs and ask for one output surface only.

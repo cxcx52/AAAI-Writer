@@ -2,12 +2,11 @@
 
 ## Unreleased
 
-- Added artifact fact sheets, claim-boundary tracking, and reviewer-risk auditing.
-- Added source ZIP, checksum, PDF preview, and submission-portal checks.
-- Added concise Chinese usage guidance and a copyable package-level example.
-- Clarified expected outputs, scope, and frozen-artifact reuse in the README.
+- Switched the public repository entry point from `aaai-revision-detemplater` to `aaai-paper-architect`.
+- Replaced revision-only references with the main architecture, claim calibration, section playbook, and anti-template style references actually used by the core skill.
+- Added the bundled local style-audit script to the public repository.
+- Rewrote the README, Chinese usage guide, and example prompt around the main AAAI writing workflow.
 
-## Initial publication — 2026-07-22
+## Initial publication - 2026-07-22
 
 - Published the initial AAAI revision detemplating workflow.
-- Added narrative rebuilding, main-versus-supplement allocation, metadata editing, and evidence calibration references.
